@@ -1,5 +1,6 @@
 import React from 'react'
 import API from './api'
+import { FormattedDate } from 'react-intl';
 
 export default class GameList extends React.Component {
   state = {
@@ -21,7 +22,7 @@ export default class GameList extends React.Component {
       <div>
         <h2>Historical games</h2>
         {this.state.games.length > 0 ? (
-          <table>
+          <table className="table table-striped table-sm">
           <thead>
             <tr>
               <th>Date</th>
@@ -33,7 +34,7 @@ export default class GameList extends React.Component {
             {this.state.games.map(game => {
               return (
                 <tr>
-                  <td>{game.date}</td>
+                  <td><FormattedDate value={game.date} /></td>
                   <td>{game.name}</td>
                   <td>{game.startingScore}</td>
                 </tr>
