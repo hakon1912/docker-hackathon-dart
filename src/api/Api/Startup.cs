@@ -1,4 +1,3 @@
-using Api.Attributes;
 using Api.Middleware;
 using Api.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +24,6 @@ namespace Api
         {
             services.AddMvc();
             services.Configure<AppConfig>(Configuration);
-            services.AddScoped<AuthenticationFilterAttribute>();
 
             ConfigureRepositories(services);
         }
