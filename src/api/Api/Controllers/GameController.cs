@@ -14,10 +14,10 @@ namespace Api.Controllers
             _gameRepository = gameRepository;
         }
 
-        [HttpGet("game/get/{id}")]
-        public Game GetGame(int id)
+        [HttpGet("game/get/{key}")]
+        public Game GetGame(string key)
         {
-            return _gameRepository.GetById(id);
+            return _gameRepository.GetByKey(key);
         }
 
         [HttpGet("game/all")]

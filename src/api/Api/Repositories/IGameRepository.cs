@@ -5,8 +5,9 @@ namespace Api.Repositories
 {
     public interface IGameRepository
     {
-        Game GetById(int id);
+        Game GetByKey(string key);
         List<Game> GetAll();
+        List<Game> GetHistoric();
         string Add(Game game);
     }
 }

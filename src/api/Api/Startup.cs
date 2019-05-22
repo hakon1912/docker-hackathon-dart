@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using GameRepository = Api.Repositories.GameRepository;
+using RoundRepository = Api.Repositories.RoundRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api
