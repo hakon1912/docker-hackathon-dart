@@ -1,9 +1,18 @@
 version: '3.7'
 
 services:
+    frontend:
+      build:
+        context: './frontend'
+        dockerfile: 'dev.Dockerfile'
+      volumes:
+          - ./frontend/src:/usr/app/src
+          - ./frontend/public:/usr/app/public
+      restart: on-failure
+
     db:
       build: './database'
-      restart: always
+      restart: on-failure
       volumes:
         - ./database/volumes/dev:/var/lib/postgresql/data
       environment:
