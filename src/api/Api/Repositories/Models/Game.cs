@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Api.Models
+namespace Api.Repositories.Models
 {
     public class Game
     {
@@ -11,6 +11,6 @@ namespace Api.Models
         public DateTime Date { get; set; }
         public int StartingScore { get; set; }
         public bool IsComplete { get; set; }
-        public List<Player> Players { get; set; }
+        
     }
 }
