@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+    db:
+      build: './database'
+      restart: always
+      volumes:
+        - ./database/volumes/dev:/var/lib/postgresql/data
+      environment:
+        - "DART_DB_USER=dart"
+        - "DART_DB_PASSWORD=dart"
+        - "DART_DB_DATABASE=dart"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=postgres"
+      ports:
+        - 5432:5432
