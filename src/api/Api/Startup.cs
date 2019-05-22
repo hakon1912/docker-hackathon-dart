@@ -1,9 +1,14 @@
 using Api.Middleware;
 using Api.Repositories;
+using Api.Repositories.Real;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using GameRepository = Api.Repositories.GameRepository;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api
 {
@@ -18,6 +23,7 @@ namespace Api
                 .AddEnvironmentVariables();
 
             Configuration = configurationBuilder.Build();
+
         }
 
         public IConfiguration Configuration { get; }
@@ -27,13 +33,14 @@ namespace Api
             services.AddCors(options =>
             {
                 options.AddPolicy(LOCALHOST_CORS_POLICY,
-                builder =>
-                {
-                    builder.WithOrigins("http://localhost:3000");
-                });
+                    builder => { builder.WithOrigins("http://localhost:3000"); });
             });
 
-            services.AddMvc();
+            services
+                .AddEntityFrameworkNpgsql()
+                .AddDbContext<ApiContext>()
+                .BuildServiceProvider();
+
             services.Configure<AppConfig>(Configuration);
 
             ConfigureRepositories(services);
