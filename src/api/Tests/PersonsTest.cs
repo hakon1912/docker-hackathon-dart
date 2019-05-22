@@ -11,41 +11,18 @@ namespace Dartboard.Test
     [TestClass]
     public class PersonsTest : BaseTest
     {
-        private readonly Player _player = new Player
+        private readonly Round _round = new Round
         {
-            Id = 1,
-            Name = "Mocked FN1",
-            GameId = 1,
-            TurnOrder = 1
+            Id = 1
+           
         };
 
+       
         [TestMethod]
-        public async Task GetPerson_ReturnsCorrectResult()
-        {
-            PersonRepositoryMock.Setup(x => x.GetById(It.IsAny<int>()))
-                .Returns(_player);
-
-            var response = await PersonServiceClient.GetPerson("1");
-
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            Assert.AreEqual("Mocked FN1", response.Result.Name);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public async Task GetPerson_ThrowsException()
-        {
-            PersonRepositoryMock.Setup(x => x.GetById(It.IsAny<int>()))
-                .Throws(new InvalidOperationException());
-
-            var result = await PersonServiceClient.GetPerson("1");
-        }
-
-        [TestMethod]
-        public async Task GetPersons()
+        public async Task GetRounds()
         {
             PersonRepositoryMock.Setup(x => x.GetAll())
-                .Returns(new List<Player> { _player });
+                .Returns(new List<Round> { _round });
 
             var response = await PersonServiceClient.GetPersons();
 
