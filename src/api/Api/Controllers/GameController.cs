@@ -20,13 +20,6 @@ namespace Api.Controllers
             return _gameRepository.GetById(id);
         }
 
-        [HttpGet("game/remove")]
-        public string RemoveGame()
-        {
-            _gameRepository.Remove();
-            return "Last player remove. Total count: " + _gameRepository.GetCount();
-        }
-
         [HttpGet("game/all")]
         public List<Game> GetGames()
         {
@@ -34,9 +27,9 @@ namespace Api.Controllers
         }
 
         [HttpPost("game/save")]
-        public string AddPerson([FromBody]Game game)
+        public string AddGame([FromBody]Game game)
         {
-            return _gameRepository.Save(game);
+            return _gameRepository.Add(game);
         }
     }
 }
