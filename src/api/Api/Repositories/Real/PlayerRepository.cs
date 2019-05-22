@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Api.Repositories.Models;
 
-namespace Api.Repositories
+namespace Api.Repositories.Real
 {
     public class PlayerRepository : IPlayerRepository
     {

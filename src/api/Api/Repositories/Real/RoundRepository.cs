@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using Api.Repositories.Models;
+using Api.Models;
 
-namespace Api.Repositories
+namespace Api.Repositories.Real
 {
-    public class PlayerRepository : IPlayerRepository
+    public class RoundRepository : IRoundRepository
     {
-        public string Add(Player player)
+        public string Add(Round round)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Player> GetAll()
+        public List<Round> GetAll()
         {
             throw new System.NotImplementedException();
         }
