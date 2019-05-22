@@ -24,20 +24,18 @@ export default class GameList extends React.Component {
           <table>
           <thead>
             <tr>
-              <th>Game</th>
-              <th>NumberOfPlayers</th>
               <th>Date</th>
-              <th>Winner</th>
+              <th>Name</th>
+              <th>Game type</th>
             </tr>
           </thead>
           <tbody>
             {this.state.games.map(game => {
               return (
                 <tr>
-                  <td>{game.id}</td>
-                  <td>{game.numberOfPlayers}</td>
                   <td>{game.date}</td>
-                  <td>{game.winner}</td>
+                  <td>{game.name}</td>
+                  <td>{game.startingScore}</td>
                 </tr>
               )
             })}
