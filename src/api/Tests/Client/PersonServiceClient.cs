@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Api.Models;
 using Newtonsoft.Json;
 
-namespace SampleDotNetCore2RestStub.Integration.Test.Client
+namespace Dartboard.Test.Client
 {
     public class PersonServiceClient
     {

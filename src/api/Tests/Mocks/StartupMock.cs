@@ -2,13 +2,13 @@ using Api;
 using Api.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SampleDotNetCore2RestStub.Integration.Test.Mocks
+namespace Dartboard.Test.Mocks
 {
     public class StartupMock : Startup
     {
-        private IPlayerRepository _playerRepository;
+        private IRoundRepository _playerRepository;
         
-        public StartupMock(IPlayerRepository playerRepository)
+        public StartupMock(IRoundRepository playerRepository)
         {
             _playerRepository = playerRepository;
         }

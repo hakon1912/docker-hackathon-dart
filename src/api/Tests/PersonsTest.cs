@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Api.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Newtonsoft.Json;
 
-namespace SampleDotNetCore2RestStub.Integration.Test
+namespace Dartboard.Test
 {
     [TestClass]
     public class PersonsTest : BaseTest

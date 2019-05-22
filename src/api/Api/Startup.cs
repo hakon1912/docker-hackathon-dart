@@ -41,7 +41,7 @@ namespace Api
 
         public virtual void ConfigureRepositories(IServiceCollection services)
         {
-            services.AddSingleton<IPlayerRepository, PlayerRepository>();
+            services.AddSingleton<IRoundRepository, RoundRepository>();
             services.AddSingleton<IGameRepository, GameRepository>();
         }
 

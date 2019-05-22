@@ -4,52 +4,35 @@ using Api.Models;
 
 namespace Api.Repositories
 {
-    public class PlayerRepository : IPlayerRepository
+    public class RoundRepository : IRoundRepository
     {
-        private Dictionary<int, Player> _persons = new Dictionary<int, Player>();
+        private Dictionary<int, Round> _persons = new Dictionary<int, Round>();
 
-        public PlayerRepository()
+        public RoundRepository()
         {
-            _persons.Add(1, new Player { Id = 1, Name = "FN1", GameId=1, TurnOrder=0 });
-            _persons.Add(2, new Player { Id = 2, Name = "FN2", GameId=1, TurnOrder=1 });
-            _persons.Add(3, new Player { Id = 3, Name = "FN3", GameId=1, TurnOrder=2 });
-            _persons.Add(4, new Player { Id = 4, Name = "FN4", GameId=1, TurnOrder=3 });
+            _persons.Add(1, new Round { Id = 1 });
+            _persons.Add(2, new Round { Id = 2 });
+            _persons.Add(3, new Round { Id = 3 });
+            _persons.Add(4, new Round { Id = 4 });
         }
 
-        public Player GetById(int id)
+        public List<Round> GetAll()
         {
-            return _persons[id];
-        }
 
-        public List<Player> GetAll()
-        {
             return _persons.Values.ToList();
         }
 
-        public int GetCount()
+        public string Add(Round round)
         {
-            return _persons.Count();
-        }
-
-        public void Remove()
-        {
-            if (_persons.Keys.Any())
+            if (_persons.ContainsKey(round.Id))
             {
-                _persons.Remove(_persons.Keys.Last());
-            }
-        }
-
-        public string Save(Player player)
-        {
-            if (_persons.ContainsKey(player.Id))
-            {
-                _persons[player.Id] = player;
-                return "Updated Player with id=" + player.Id;
+                _persons[round.Id] = round;
+                return "Updated Player with id=" + round.Id;
             }
             else
             {
-                _persons.Add(player.Id, player);
-                return "Added Player with id=" + player.Id;
+                _persons.Add(round.Id, round);
+                return "Added Player with id=" + round.Id;
             }
         }
     }

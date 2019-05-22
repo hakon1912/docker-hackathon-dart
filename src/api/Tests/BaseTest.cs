@@ -1,23 +1,22 @@
-using System.Net.Http;
 using Api.Repositories;
+using Dartboard.Test.Client;
+using Dartboard.Test.Mocks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SampleDotNetCore2RestStub.Integration.Test.Client;
-using SampleDotNetCore2RestStub.Integration.Test.Mocks;
 
-namespace SampleDotNetCore2RestStub.Integration.Test
+namespace Dartboard.Test
 {
     public abstract class BaseTest
     {
         protected PersonServiceClient PersonServiceClient;
-        protected Mock<IPlayerRepository> PersonRepositoryMock;
+        protected Mock<IRoundRepository> PersonRepositoryMock;
 
         public BaseTest()
         {
-            PersonRepositoryMock = new Mock<IPlayerRepository>();
+            PersonRepositoryMock = new Mock<IRoundRepository>();
 
             var server = new TestServer(new WebHostBuilder()
                 .UseStartup<StartupMock>()

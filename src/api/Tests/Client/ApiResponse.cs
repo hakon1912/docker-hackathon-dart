@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace SampleDotNetCore2RestStub.Integration.Test.Client
+namespace Dartboard.Test.Client
 {
     public class ApiResponse<T>
     {
