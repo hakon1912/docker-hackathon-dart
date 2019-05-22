@@ -26,7 +26,7 @@ namespace Api.Controllers
             return _gameRepository.GetAll();
         }
 
-        [HttpPost("game/save")]
+        [HttpPost("game/add")]
         public string AddGame([FromBody]Game game)
         {
             return _gameRepository.Add(game);
