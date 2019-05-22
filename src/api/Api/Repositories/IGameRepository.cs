@@ -7,8 +7,6 @@ namespace Api.Repositories
     {
         Game GetById(int id);
         List<Game> GetAll();
-        int GetCount();
-        void Remove();
-        string Save(Game player);
+        string Add(Game game);
     }
 }
