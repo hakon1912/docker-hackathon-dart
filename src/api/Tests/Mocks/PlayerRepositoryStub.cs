@@ -11,7 +11,7 @@ namespace SampleDotNetCore2RestStub.Integration.Test.Mocks
 
         public PlayerRepositoryStub()
         {
-            _persons.Add(1, new Player { Id = 1, FirstName = "Stubbed FN1", LastName = "Stubbed LN1", Email = "stubbed.email1@email.na" });
+            _persons.Add(1, new Player { Id = 1, Name = "Stubbed FN1", GameId=1, TurnOrder = 1 });
         }
 
         public Player GetById(int id)

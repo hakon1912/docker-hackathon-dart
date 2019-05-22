@@ -18,9 +18,9 @@ namespace SampleDotNetCore2RestStub.Integration.Test
         private readonly Player _player = new Player
         {
             Id = 1,
-            FirstName = "Mocked FN1",
-            LastName = "Mocked LN1",
-            Email = "mocked.email1@email.na"
+            Name = "Mocked FN1",
+            GameId = 1,
+            TurnOrder = 1
         };
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace SampleDotNetCore2RestStub.Integration.Test
             var response = await PersonServiceClient.GetPerson("1");
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            Assert.AreEqual("Mocked LN1", response.Result.LastName);
+            Assert.AreEqual("Mocked FN1", response.Result.Name);
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace SampleDotNetCore2RestStub.Integration.Test
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(1, response.Result.Count);
-            Assert.AreEqual("Mocked LN1", response.Result[0].LastName);
+            Assert.AreEqual("Mocked FN1", response.Result[0].Name);
         }
     }
 }
