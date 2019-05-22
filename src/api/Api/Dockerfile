@@ -3,4 +3,4 @@ COPY pub/ /root/
 WORKDIR /root/
 ENV ASPNETCORE_URLS="http://*:80"
 EXPOSE 80/tcp
-ENTRYPOINT ["dotnet", "SampleDotNetCore2RestStub.dll"]
+ENTRYPOINT ["dotnet", "Api.dll"]
