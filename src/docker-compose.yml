@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
     frontend:
+      container_name: dart_frontend
       build:
         context: ./frontend
         dockerfile: dev.Dockerfile
@@ -16,6 +17,7 @@ services:
       #   - front
 
     api:
+      container_name: dart_api
       build: ./api
       restart: on-failure
       ports:
@@ -24,6 +26,7 @@ services:
       #   - front
 
     db:
+      container_name: dart_db
       build: ./database
       restart: on-failure
       volumes:
