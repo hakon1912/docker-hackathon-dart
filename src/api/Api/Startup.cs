@@ -1,3 +1,4 @@
+using System;
 using Api.Middleware;
 using Api.Repositories;
 using Api.Repositories.Real;
@@ -7,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using GameRepository = Api.Repositories.GameRepository;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api
@@ -56,7 +56,13 @@ namespace Api
         {
             app.UseMiddleware<HttpExceptionMiddleware>();
             app.UseCors(LOCALHOST_CORS_POLICY);
-            app.UseMvc();
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<ApiContext>();
+                context.Database.Migrate();
+            }
+
         }
     }
 }
