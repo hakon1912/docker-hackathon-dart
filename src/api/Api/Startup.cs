@@ -22,6 +22,15 @@ namespace Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("localhost_cors",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000");
+                });
+            });
+
             services.AddMvc();
             services.Configure<AppConfig>(Configuration);
 
