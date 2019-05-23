@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Api.Models;
 using Api.Repositories;
+using Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -21,15 +22,15 @@ namespace Api.Controllers
         }
 
         [HttpGet("round/all")]
-        public List<Round> GetRounds()
+        public List<Round> GetRounds(string gameKey)
         {
-            return _roundRepository.GetAll();
+            return _roundRepository.GetAll(gameKey);
         }
 
         [HttpPost("round/add")]
-        public string AddRound([FromBody]Round round)
+        public void AddRound([FromBody]Round round)
         {
-            return _roundRepository.Add(round);
+            _roundRepository.Add(round);
         }
     }
 }

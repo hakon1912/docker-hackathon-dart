@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Api.Models;
+using Api.Repositories.Interfaces;
 
-namespace Api.Repositories
+namespace Api.Repositories.Mock
 {
-    public class GameRepository : IGameRepository
+    public class GameRepositoryMock : IGameRepository
     {
         public Game GetByKey(string key)
         {

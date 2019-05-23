@@ -1,14 +1,15 @@
 using System;
 using Api.Middleware;
 using Api.Repositories;
+using Api.Repositories.Interfaces;
 using Api.Repositories.Real;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using GameRepository = Api.Repositories.GameRepository;
-using RoundRepository = Api.Repositories.RoundRepository;
+using GameRepositoryMock = Api.Repositories.Mock.GameRepositoryMock;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Api
@@ -50,7 +51,7 @@ namespace Api
         public virtual void ConfigureRepositories(IServiceCollection services)
         {
             services.AddSingleton<IRoundRepository, RoundRepository>();
-            services.AddSingleton<IGameRepository, GameRepository>();
+            services.AddSingleton<IGameRepository, GameRepositoryMock>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

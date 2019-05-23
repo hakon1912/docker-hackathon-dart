@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Api.Models;
+using Api.Repositories.Interfaces;
 
-namespace Api.Repositories
+namespace Api.Repositories.Mock
 {
     public class RoundRepositoryMock : IRoundRepository
     {
