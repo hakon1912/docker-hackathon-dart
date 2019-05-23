@@ -14,5 +14,10 @@ namespace Api.Repositories.Real
         {
             throw new System.NotImplementedException();
         }
+
+        public Player NextRound(int gameId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
