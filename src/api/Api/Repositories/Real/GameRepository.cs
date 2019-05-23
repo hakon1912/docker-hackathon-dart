@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using Api.Models;
+using Api.Repositories.Interfaces;
 using Microsoft.Azure.KeyVault.Models;
 
 namespace Api.Repositories.Real
