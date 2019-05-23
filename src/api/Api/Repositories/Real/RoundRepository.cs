@@ -60,8 +60,14 @@ namespace Api.Repositories.Real
             };
         }
 
-        public Player NextRound(int gameId)
+        public Player NextRound(string gameKey)
         {
+            var lastRound = GetLastRound(gameKey);
+            using (var db = new ApiContext())
+            {
+
+            }
+
             throw new System.NotImplementedException();
         }
     }

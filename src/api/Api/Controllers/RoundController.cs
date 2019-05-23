@@ -15,8 +15,8 @@ namespace Api.Controllers
             _roundRepository = playerRepository;
         }
 
-         [HttpGet("round/next")]
-        public Player NextRound([FromBody]int gameid)
+         [HttpGet("round/next/{gameKey}")]
+        public Player NextRound(string gameKey)
         {
             return _roundRepository.NextRound(gameid);
         }

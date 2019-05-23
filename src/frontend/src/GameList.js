@@ -1,27 +1,13 @@
 import React from 'react'
-import API from './api'
 import { FormattedDate } from 'react-intl';
 
 export default class GameList extends React.Component {
-  state = {
-    games: []
-  }
 
-  componentDidMount() {
-    API.get("game/all")
-    .then(res => {
-      const games = res.data;
-      this.setState({ games });
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
   render() {
     return (
       <div>
         <h2>Historical games</h2>
-        {this.state.games.length > 0 ? (
+        {this.props.games.length > 0 ? (
           <table className="table table-striped table-sm">
           <thead>
             <tr>
@@ -31,7 +17,7 @@ export default class GameList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.games.map(game => {
+            {this.props.games.map(game => {
               return (
                 <tr key={game.id}>
                   <td><FormattedDate value={game.date} /></td>
