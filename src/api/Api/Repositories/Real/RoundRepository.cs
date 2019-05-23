@@ -40,11 +40,11 @@ namespace Api.Repositories.Real
             }
         }
 
-        public Round GetLastRound(string gameKey)
+        public Round GetLastRound(int gameId)
         {
             using (var db = new ApiContext())
             {
-                var dbGame = db.Games.Single(g => g.Key == gameKey);
+                var dbGame = db.Games.Single(g => g.Id == gameId);
                 return MapRound(db.Rounds.Where(r => r.GameId == dbGame.Id).OrderBy(r => r.Id).Last());
             }
         }
@@ -60,9 +60,9 @@ namespace Api.Repositories.Real
             };
         }
 
-        public Player NextRound(string gameKey)
+        public Player NextRound(int gameId)
         {
-            var lastRound = GetLastRound(gameKey);
+            var lastRound = GetLastRound(gameId);
             using (var db = new ApiContext())
             {
 

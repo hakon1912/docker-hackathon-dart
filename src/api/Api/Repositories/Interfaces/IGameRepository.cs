@@ -8,6 +8,6 @@ namespace Api.Repositories.Interfaces
         Game GetByKey(string key);
         List<Game> GetAll();
         List<Game> GetHistoric();
-        string Add(Game game);
+        int Add(Game game);
     }
 }
