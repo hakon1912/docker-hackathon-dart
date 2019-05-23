@@ -34,10 +34,5 @@ namespace Dartboard.Test.Mocks
             _rounds.Add(player.Id, player);
             return result;
         }
-
-        List<Round> IRoundRepository.GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

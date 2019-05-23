@@ -17,19 +17,19 @@ namespace Api.Controllers
          [HttpGet("round/next/{gameKey}")]
         public Player NextRound(string gameKey)
         {
-            return _roundRepository.NextRound(gameid);
+            return _roundRepository.NextRound(gameKey);
         }
 
-        [HttpGet("round/all")]
-        public List<Round> GetRounds()
+        [HttpGet("round/all/{gameKey}")]
+        public List<Round> GetRounds(string gameKey)
         {
-            return _roundRepository.GetAll();
+            return _roundRepository.GetAll(gameKey);
         }
 
         [HttpPost("round/add")]
-        public string AddRound([FromBody]Round round)
+        public void AddRound([FromBody]Round round)
         {
-            return _roundRepository.Add(round);
+            _roundRepository.Add(round);
         }
     }
 }

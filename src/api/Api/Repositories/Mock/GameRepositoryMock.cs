@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Api.Models;
+using Api.Repositories.Interfaces;
 
 namespace Api.Repositories
 {
