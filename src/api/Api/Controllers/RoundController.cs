@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Api.Models;
-using Api.Repositories;
 using Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
