@@ -36,6 +36,16 @@ namespace Dartboard.Test.Mocks
             throw new System.NotImplementedException();
         }
 
+        public List<Round> GetAll(int gameId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Round GetLastRound(int gameId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Player NextRound(int gameId)
         {
             throw new System.NotImplementedException();
@@ -61,7 +71,7 @@ namespace Dartboard.Test.Mocks
             return result;
         }
 
-        List<Round> IRoundRepository.GetAll(string gameKey)
+        List<Round> IRoundRepository.GetAll(int gameId)
         {
             throw new System.NotImplementedException();
         }

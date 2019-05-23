@@ -24,12 +24,12 @@ namespace Api.Repositories.Real
             }
         }
 
-        public List<Round> GetAll(string gameKey)
+        public List<Round> GetAll(int gameId)
         {
             using (var db = new ApiContext())
             {
                 var rounds = new List<Round>();
-                var dbGame = db.Games.Single(g => g.Key == gameKey);
+                var dbGame = db.Games.Single(g => g.Id == gameId);
 
                 foreach (var dbRound in db.Rounds.Where(r => r.GameId == dbGame.Id))
                 {

@@ -17,13 +17,13 @@ namespace Api.Repositories.Mock
             _rounds.Add(4, new Round { Id = 4 });
         }
 
-        public List<Round> GetAll(string gameKey)
+        public List<Round> GetAll(int gameId)
         {
 
             return _rounds.Values.ToList();
         }
 
-        public Round GetLastRound(string gameKey)
+        public Round GetLastRound(int gameId)
         {
             throw new System.NotImplementedException();
         }
@@ -33,9 +33,9 @@ namespace Api.Repositories.Mock
             
         }
 
-        public Player NextRound(string gameKey)
+        public Player NextRound(int gameId)
         {
-            return new Player(){Id=1,Name="NextOne" , GameId=1, RoundNumber=1, CurrentScore=201 };
+            return new Player(){Id=1,Name="NextOne" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
         }
     }
 }
