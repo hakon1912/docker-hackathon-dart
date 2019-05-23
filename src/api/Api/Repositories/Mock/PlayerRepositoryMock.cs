@@ -3,7 +3,7 @@ using Api.Repositories.Models;
 
 namespace Api.Repositories
 {
-    public class PlayerRepository : IPlayerRepository
+    public class PlayerRepositoryMock : IPlayerRepository
     {
         public string Add(Player player)
         {

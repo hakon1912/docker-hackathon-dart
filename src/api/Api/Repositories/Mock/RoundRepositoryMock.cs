@@ -4,11 +4,11 @@ using Api.Models;
 
 namespace Api.Repositories
 {
-    public class RoundRepository : IRoundRepository
+    public class RoundRepositoryMock : IRoundRepository
     {
         private Dictionary<int, Round> _rounds = new Dictionary<int, Round>();
 
-        public RoundRepository()
+        public RoundRepositoryMock()
         {
             _rounds.Add(1, new Round { Id = 1 });
             _rounds.Add(2, new Round { Id = 2 });
@@ -20,6 +20,11 @@ namespace Api.Repositories
         {
 
             return _rounds.Values.ToList();
+        }
+
+        public Round GetLastRound(string gameKey)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void Add(Round round)

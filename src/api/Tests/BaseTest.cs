@@ -1,4 +1,5 @@
 using Api.Repositories;
+using Api.Repositories.Interfaces;
 using Dartboard.Test.Client;
 using Dartboard.Test.Mocks;
 using Microsoft.AspNetCore.Hosting;
