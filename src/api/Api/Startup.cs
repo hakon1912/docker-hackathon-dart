@@ -1,19 +1,15 @@
-using System;
 using Api.Middleware;
-using Api.Repositories;
 using Api.Repositories.Interfaces;
 using Api.Repositories.Real;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
-using RoundRepository = Api.Repositories.Mock.RoundRepositoryMock;
-using GameRepository = Api.Repositories.Mock.GameRepositoryMock;
+using RoundRepository = Api.Repositories.Real.RoundRepository;
+using GameRepository = Api.Repositories.Real.GameRepository;
 
 using Microsoft.EntityFrameworkCore;
-using Api.Repositories.Interfaces;
 
 namespace Api
 {
