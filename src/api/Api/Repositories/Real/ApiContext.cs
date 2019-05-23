@@ -6,10 +6,13 @@ namespace Api.Repositories.Real
     public class ApiContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         => optionsBuilder.UseNpgsql("Host=localhost;Database=dart;Username=dart;Password=dart");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //optionsBuilder.UseNpgsql("Password=dart;User ID=dart;Initial Catalog=dart;Data Source=dart");
-            optionsBuilder.UseNpgsql("Host=localhost;Database=dart;Username=dart;Password=dart");
-            //db.Database.EnsureCreated();
+            modelBuilder.Entity<Game>().HasIndex(g => g.Id);
+            modelBuilder.Entity<Player>().HasIndex(p => p.Id);
+            modelBuilder.Entity<Round>().HasIndex(r => r.Id);
         }
 
         public DbSet<Game> Games { get; set; }
