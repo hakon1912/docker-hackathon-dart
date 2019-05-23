@@ -31,6 +31,11 @@ namespace Dartboard.Test.Mocks
             throw new System.NotImplementedException();
         }
 
+        public Player NextRound(string gameKey)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Player NextRound(int gameId)
         {
             throw new System.NotImplementedException();

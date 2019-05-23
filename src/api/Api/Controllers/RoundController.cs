@@ -18,7 +18,7 @@ namespace Api.Controllers
          [HttpGet("round/next/{gameKey}")]
         public Player NextRound(string gameKey)
         {
-            return _roundRepository.NextRound(gameid);
+            return _roundRepository.NextRound(gameKey);
         }
 
         [HttpGet("round/all")]

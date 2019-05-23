@@ -28,6 +28,11 @@ namespace Api.Repositories.Mock
             throw new System.NotImplementedException();
         }
 
+        public Player NextRound(string gameKey)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void Add(Round round)
         {
             
