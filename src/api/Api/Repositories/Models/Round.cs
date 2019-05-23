@@ -7,5 +7,8 @@
         public int PlayerId { get; set; }
         public int Score { get; set; }
         public int DartsUsed { get; set; }
+
+        public Game Game { get; set; }
+        public Player Player { get; set; }
     }
 }

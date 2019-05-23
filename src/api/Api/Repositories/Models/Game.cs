@@ -11,5 +11,8 @@ namespace Api.Repositories.Models
         public DateTime Date { get; set; }
         public int StartingScore { get; set; }
         public bool IsComplete { get; set; }
+
+        public List<Player> Players { get; set; }
+        public List<Round> Rounds { get; set; }
     }
 }

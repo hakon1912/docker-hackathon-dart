@@ -6,7 +6,8 @@ namespace Api.Repositories.Real
     public class ApiContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         => optionsBuilder.UseNpgsql("Host=localhost;Database=dart;Username=dart;Password=dart");
+         //=> optionsBuilder.UseNpgsql("Host=dart_db;Database=postgres;Username=postgres;Password=postgres");
+         => optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=postgres");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
