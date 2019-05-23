@@ -27,7 +27,7 @@ export default class CreateGame extends React.Component {
       players: this.state.players
     }})
     .then(res => {
-
+        this.props.startGame(res.data);
     })
     .catch(error => {
       console.log(error);
