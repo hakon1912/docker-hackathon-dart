@@ -1,3 +1,4 @@
+using System;
 using Api.Middleware;
 using Api.Repositories.Interfaces;
 using Api.Repositories.Real;
@@ -36,7 +37,7 @@ namespace Api
                 options.AddPolicy(LOCALHOST_CORS_POLICY,
                     builder => { builder.WithOrigins("http://localhost:3000"); });
             });
-
+            services.AddMvc();
             services
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<ApiContext>();
