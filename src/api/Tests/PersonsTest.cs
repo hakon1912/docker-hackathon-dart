@@ -22,7 +22,7 @@ namespace Dartboard.Test
         public async Task GetRounds()
         {
             string gamekey = "3453532";
-            PersonRepositoryMock.Setup(x => x.GetAll(gamekey))
+            PersonRepositoryMock.Setup(x => x.GetAll(1))
                 .Returns(new List<Round> { _round });
 
             var response = await PersonServiceClient.GetPersons();

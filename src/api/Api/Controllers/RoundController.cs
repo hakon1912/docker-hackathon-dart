@@ -22,7 +22,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("round/all/{gameKey}")]
-        public List<Round> GetRounds(string gameKey)
+        public List<Round> GetRounds(int gameKey)
         {
             return _roundRepository.GetAll(gameKey);
         }
