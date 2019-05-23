@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Api.Models;
+using Api.Repositories.Interfaces;
 
-namespace Api.Repositories
+namespace Api.Repositories.Mock
 {
     public class RoundRepositoryMock : IRoundRepository
     {
@@ -23,6 +24,11 @@ namespace Api.Repositories
         }
 
         public Round GetLastRound(string gameKey)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Player NextRound(string gameKey)
         {
             throw new System.NotImplementedException();
         }

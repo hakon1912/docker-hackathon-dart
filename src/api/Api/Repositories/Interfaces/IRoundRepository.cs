@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Api.Models;
 
-namespace Api.Repositories
+namespace Api.Repositories.Interfaces
 {
     public interface IRoundRepository
     {

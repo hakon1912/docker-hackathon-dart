@@ -2,7 +2,7 @@
 using Api.Repositories.Interfaces;
 using Api.Repositories.Models;
 
-namespace Api.Repositories
+namespace Api.Repositories.Mock
 {
     public class PlayerRepositoryMock : IPlayerRepository
     {
