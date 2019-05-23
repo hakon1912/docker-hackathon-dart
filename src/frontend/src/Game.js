@@ -29,11 +29,29 @@ export default class Game extends React.Component {
     this.setState({currentPlayer: player, gameInProgress: true})
   }
 
+  endPlayerRound(score) {
+    API.post("round/add", {
+      gameId: this.state.currentPlayer.gameId,
+      playerId: this.state.currentPlayer.Id,
+      score
+    })
+    .then(res => {
+      if (res.data === null) {
+        this.setState({gameInProgress: false, currentPlayer: null})
+        return;
+      }
+      this.setState({currentPlayer: res.data});
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
   render() {
     return (
       <div>
         {this.state.gameInProgress ? (
-          <CurrentPlayer />
+          <CurrentPlayer endPlayerRound/>
         ) : (
             <div>
               <CreateGame startGame={this.startGame}/>
