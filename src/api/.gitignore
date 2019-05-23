@@ -3,4 +3,5 @@
 */output
 */pub
 .vs/
+.vscode/
 Api.sln.DotSettings.user
