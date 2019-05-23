@@ -11,9 +11,10 @@ namespace Api.Controllers
         private readonly IGameRepository _gameRepository;
         private readonly IRoundRepository _roundRepository;
 
-        public GameController(IGameRepository gameRepository)
+        public GameController(IGameRepository gameRepository,IRoundRepository roundRepository)
         {
             _gameRepository = gameRepository;
+            _roundRepository = roundRepository;
         }
 
         [HttpGet("game/get/{key}")]

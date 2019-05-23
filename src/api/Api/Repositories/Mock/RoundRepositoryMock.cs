@@ -35,7 +35,7 @@ namespace Api.Repositories.Mock
 
         public Player NextRound(int gameId)
         {
-            return new Player(){Id=1,Name="NextOne" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
+            return new Player(){Id=1,Name="Max" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
         }
     }
 }

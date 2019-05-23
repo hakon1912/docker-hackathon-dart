@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Api.Models;
 using Api.Repositories.Interfaces;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Api.Repositories.Mock
 {
@@ -45,7 +46,7 @@ namespace Api.Repositories.Mock
 
         public int Add(Game game)
         {
-            throw new NotImplementedException();
+            return 1;
         }
     }
 }
