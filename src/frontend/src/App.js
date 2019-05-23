@@ -9,7 +9,6 @@ function App() {
     <IntlProvider locale="en">
       <div className="container">
         <div className="App">
-          <button type="button" className="btn btn-primary">Start new game</button>
           <CreateGame />
           <GameList />
         </div>

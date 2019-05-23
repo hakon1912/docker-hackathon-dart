@@ -58,5 +58,10 @@ namespace Api.Repositories.Real
                 DartsUsed = dbRound.DartsUsed
             };
         }
+
+        public Player NextRound(int gameId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace Api.Repositories
       
         List<Round> GetAll(string gameKey);
         Round GetLastRound(string gameKey);
+        Player NextRound(int gameId);
         void Add(Round round);
     }
 }

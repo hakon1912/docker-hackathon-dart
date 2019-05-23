@@ -9,7 +9,7 @@ export default class CreateGame extends React.Component {
       players: [],
       gameName: null,
       playerName: "",
-      gameType: null
+      gameType: "201"
     }
   }
   addPlayer() {
@@ -22,8 +22,8 @@ export default class CreateGame extends React.Component {
   
   startGame() {
     api.post("game/add", {createGame: {
-      gameType: this.state.gameType,
-      gameName: this.state.gameName,
+      startingScore: this.state.gameType,
+      name: this.state.gameName,
       players: this.state.players
     }})
     .then(res => {
@@ -37,17 +37,17 @@ export default class CreateGame extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.setState({ createGame: true })}>Create game</button>
+        <button className="btn btn-primary" onClick={() => this.setState({ createGame: true })}>Create game</button>
         {this.state.createGame && (
           <div>
             <input type="text" placeholder="Name" />
-            <select>
-              <option>201</option>
-              <option>301</option>
-              <option>501</option>
+            <select value={this.state.gameType} onChange={(e) => this.setState({gameType: e.target.value})}>
+              <option value="201">201</option>
+              <option value="301">301</option>
+              <option value="501">501</option>
             </select>
             <ul>
-              {this.state.players.map(player => <li>{player}</li>)}
+              {this.state.players.map(player => <li key={player}>{player}</li>)}
             </ul>
             <input value={this.state.playerName} onChange={(e) => this.updatePlayerName(e.target.value)} type="text" placeholder="Player name" />
             <button onClick={() => this.addPlayer()}>Add player</button>

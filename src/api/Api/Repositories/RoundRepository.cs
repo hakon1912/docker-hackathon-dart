@@ -6,25 +6,30 @@ namespace Api.Repositories
 {
     public class RoundRepository : IRoundRepository
     {
-        private Dictionary<int, Round> _persons = new Dictionary<int, Round>();
+        private Dictionary<int, Round> _rounds = new Dictionary<int, Round>();
 
         public RoundRepository()
         {
-            _persons.Add(1, new Round { Id = 1 });
-            _persons.Add(2, new Round { Id = 2 });
-            _persons.Add(3, new Round { Id = 3 });
-            _persons.Add(4, new Round { Id = 4 });
+            _rounds.Add(1, new Round { Id = 1 });
+            _rounds.Add(2, new Round { Id = 2 });
+            _rounds.Add(3, new Round { Id = 3 });
+            _rounds.Add(4, new Round { Id = 4 });
         }
 
         public List<Round> GetAll(string gameKey)
         {
 
-            return _persons.Values.ToList();
+            return _rounds.Values.ToList();
         }
 
         public void Add(Round round)
         {
             
+        }
+
+        public Player NextRound(int gameId)
+        {
+            return new Player(){Id=1,Name="NextOne" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
         }
     }
 }
