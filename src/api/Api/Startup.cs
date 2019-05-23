@@ -9,12 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-using RoundRepository = Api.Repositories.RoundRepository;
-using GameRepositoryMock = Api.Repositories.Mock.GameRepositoryMock;
+using RoundRepository = Api.Repositories.Mock.RoundRepositoryMock;
+using GameRepository = Api.Repositories.Mock.GameRepositoryMock;
 
 using Microsoft.EntityFrameworkCore;
 using Api.Repositories.Interfaces;
-using GameRepository = Api.Repositories.GameRepository;
 
 namespace Api
 {
@@ -55,7 +54,7 @@ namespace Api
         public virtual void ConfigureRepositories(IServiceCollection services)
         {
             services.AddSingleton<IRoundRepository, RoundRepository>();
-            services.AddSingleton<IGameRepository, GameRepositoryMock>();
+            services.AddSingleton<IGameRepository, GameRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
