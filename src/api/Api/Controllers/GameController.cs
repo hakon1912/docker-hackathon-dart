@@ -32,8 +32,8 @@ namespace Api.Controllers
         [HttpPost("game/add")]
         public Player AddGame([FromBody]Game game)
         {
-            var gamekey = _gameRepository.Add(game);
-            return _roundRepository.NextRound(gamekey);
+            var gameId = _gameRepository.Add(game);
+            return _roundRepository.NextRound(gameId);
         }
     }
 }

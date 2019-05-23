@@ -48,6 +48,18 @@ namespace Api.Repositories.Real
                 return MapRound(db.Rounds.Where(r => r.GameId == dbGame.Id).OrderBy(r => r.Id).Last());
             }
         }
+        public Player NextRound(int gameId)
+        {
+            var lastRound = GetLastRound(gameId);
+            using (var db = new ApiContext())
+            {
+
+                var lastPlayer = db.Games.Single(g => g.Id == gameId).Players.Single(p => p.Id == lastRound.PlayerId);
+                var nextPlayer = db.Games.Single(g => g.Id == gameId).Players.SingleOrDefault(p => p.Id == lastPlayer.TurnOrder + 1)
+                                 ?? db.Games.Single(g => g.Id == gameId).Players.OrderBy(p => p.TurnOrder).First();
+                return MapPlayer(nextPlayer);
+            }
+        }
 
         private Round MapRound(Models.Round dbRound)
         {
@@ -60,15 +72,16 @@ namespace Api.Repositories.Real
             };
         }
 
-        public Player NextRound(int gameId)
+        private Player MapPlayer(Models.Player dbPlayer)
         {
-            var lastRound = GetLastRound(gameId);
-            using (var db = new ApiContext())
+            return new Player
             {
-
-            }
-
-            throw new System.NotImplementedException();
+                GameId = dbPlayer.GameId,
+                Name = dbPlayer.Name,
+                TurnOrder = dbPlayer.TurnOrder,
+                RoundNumber = dbPlayer.Rounds.Count() + 1,
+                CurrentScore = dbPlayer.Rounds.Sum(r => r.Score)
+            };
         }
     }
 }

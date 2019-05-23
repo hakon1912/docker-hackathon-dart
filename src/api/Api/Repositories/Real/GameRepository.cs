@@ -30,7 +30,7 @@ namespace Api.Repositories.Real
                 db.SaveChanges();
             }
 
-            return -1; //key;
+            return dbGame.Id;
         }
 
         public List<Game> GetAll()

@@ -34,6 +34,7 @@ namespace Dartboard.Test
 
                 var storedGame = db.Games.Single(g => g.Key == dbGame.Key);
                 Assert.IsNotNull(storedGame.Id);
+                Assert.AreEqual(dbGame.Id, storedGame.Id);
             }
         }
     }
