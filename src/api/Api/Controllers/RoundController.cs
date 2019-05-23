@@ -21,7 +21,7 @@ namespace Api.Controllers
             return _roundRepository.NextRound(gameId);
         }
 
-        [HttpGet("round/all")]
+        [HttpGet("round/all/{gameKey}")]
         public List<Round> GetRounds(string gameKey)
         {
             return _roundRepository.GetAll(gameKey);

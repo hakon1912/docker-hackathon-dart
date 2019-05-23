@@ -27,20 +27,15 @@ namespace Api.Repositories.Mock
         {
             throw new System.NotImplementedException();
         }
-
-        public Player NextRound(string gameKey)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         public void Add(Round round)
         {
             
         }
 
-        public Player NextRound(int gameId)
+        public Player NextRound(string gameKey)
         {
-            return new Player(){Id=1,Name="NextOne" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
+            return new Player(){Id=1,Name="NextOne" , GameId=1, RoundNumber=1, CurrentScore=201 };
         }
     }
 }
