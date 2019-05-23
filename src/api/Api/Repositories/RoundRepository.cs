@@ -38,7 +38,7 @@ namespace Api.Repositories
 
         public Player NextRound(int gameId)
         {
-            return new Player(){Id=1,Name="NextOne" , GameId=gameId };
+            return new Player(){Id=1,Name="NextOne" , GameId=gameId, RoundNumber=1, CurrentScore=201 };
         }
     }
 }
