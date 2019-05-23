@@ -33,7 +33,7 @@ export default class GameList extends React.Component {
           <tbody>
             {this.state.games.map(game => {
               return (
-                <tr>
+                <tr key={game.id}>
                   <td><FormattedDate value={game.date} /></td>
                   <td>{game.name}</td>
                   <td>{game.startingScore}</td>
