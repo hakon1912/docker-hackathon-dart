@@ -14,18 +14,17 @@ namespace Api.Repositories.Real
         {
             var now = DateTime.Now;
             var key = Adler32(game.Name + now).ToString();
+            var dbGame = new Models.Game
+            {
+                Key = key,
+                Name = game.Name,
+                Date = now,
+                StartingScore = game.StartingScore,
+                IsComplete = false
+            };
 
             using (var db = new ApiContext())
             {
-                var dbGame = new Models.Game
-                {
-                    Key = key,
-                    Name = game.Name,
-                    Date = now,
-                    StartingScore = game.StartingScore,
-                    IsComplete = false
-                };
-
                 db.Games.Add(dbGame);
                 db.SaveChanges();
             }

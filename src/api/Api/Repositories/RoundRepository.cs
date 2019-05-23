@@ -16,24 +16,15 @@ namespace Api.Repositories
             _persons.Add(4, new Round { Id = 4 });
         }
 
-        public List<Round> GetAll()
+        public List<Round> GetAll(string gameKey)
         {
 
             return _persons.Values.ToList();
         }
 
-        public string Add(Round round)
+        public void Add(Round round)
         {
-            if (_persons.ContainsKey(round.Id))
-            {
-                _persons[round.Id] = round;
-                return "Updated Player with id=" + round.Id;
-            }
-            else
-            {
-                _persons.Add(round.Id, round);
-                return "Added Player with id=" + round.Id;
-            }
+            
         }
     }
 }

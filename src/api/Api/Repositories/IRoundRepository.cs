@@ -6,7 +6,8 @@ namespace Api.Repositories
     public interface IRoundRepository
     {
       
-        List<Round> GetAll();
-        string Add(Round round);
+        List<Round> GetAll(string gameKey);
+        Round GetLastRound(string gameKey);
+        void Add(Round round);
     }
 }
