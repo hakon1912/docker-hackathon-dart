@@ -29,7 +29,7 @@ namespace Api
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
             {
@@ -39,12 +39,13 @@ namespace Api
 
             services
                 .AddEntityFrameworkNpgsql()
-                .AddDbContext<ApiContext>()
-                .BuildServiceProvider();
+                .AddDbContext<ApiContext>();
 
             services.Configure<AppConfig>(Configuration);
 
             ConfigureRepositories(services);
+
+            return services.BuildServiceProvider();
         }
 
         public virtual void ConfigureRepositories(IServiceCollection services)
@@ -61,7 +62,8 @@ namespace Api
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var context = scope.ServiceProvider.GetService<ApiContext>();
-                context.Database.Migrate();
+                if (!context.Database.EnsureCreated())
+                    context.Database.Migrate();
             }
 
         }
