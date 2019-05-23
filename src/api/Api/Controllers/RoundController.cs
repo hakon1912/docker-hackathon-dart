@@ -16,9 +16,9 @@ namespace Api.Controllers
         }
 
          [HttpGet("round/next/{gameKey}")]
-        public Player NextRound(string gameKey)
+        public Player NextRound(int gameId)
         {
-            return _roundRepository.NextRound(gameKey);
+            return _roundRepository.NextRound(gameId);
         }
 
         [HttpGet("round/all/{gameKey}")]
@@ -28,9 +28,10 @@ namespace Api.Controllers
         }
 
         [HttpPost("round/add")]
-        public void AddRound([FromBody]Round round)
+        public Player AddRound([FromBody]Round round)
         {
             _roundRepository.Add(round);
+            return _roundRepository.NextRound(round.GameId);
         }
     }
 }

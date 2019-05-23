@@ -43,7 +43,7 @@ namespace Api.Repositories.Mock
             };
         }
 
-        public string Add(Game game)
+        public int Add(Game game)
         {
             throw new NotImplementedException();
         }

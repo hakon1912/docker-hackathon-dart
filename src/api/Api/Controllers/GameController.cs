@@ -9,6 +9,7 @@ namespace Api.Controllers
     public class GameController : Controller
     {
         private readonly IGameRepository _gameRepository;
+        private readonly IRoundRepository _roundRepository;
 
         public GameController(IGameRepository gameRepository)
         {
@@ -28,9 +29,10 @@ namespace Api.Controllers
         }
 
         [HttpPost("game/add")]
-        public string AddGame([FromBody]Game game)
+        public Player AddGame([FromBody]Game game)
         {
-            return _gameRepository.Add(game);
+            var gamekey = _gameRepository.Add(game);
+            return _roundRepository.NextRound(gamekey);
         }
     }
 }

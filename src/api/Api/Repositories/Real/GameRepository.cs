@@ -11,7 +11,7 @@ namespace Api.Repositories.Real
 {
     public class GameRepository : IGameRepository
     {
-        public string Add(Game game)
+        public int Add(Game game)
         {
             var now = DateTime.Now;
             var key = Adler32(game.Name + now).ToString();
